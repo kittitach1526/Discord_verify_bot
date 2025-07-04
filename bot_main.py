@@ -5,7 +5,7 @@ from bot_class import MyView,read_token,read_color,read_welcome_channel_id
 intents = discord.Intents.all()
 # intents.message_content = True
 
-bot = commands.Bot(command_prefix="!", intents=intents)
+bot = commands.Bot(command_prefix=">", intents=intents)
 
 @bot.event
 async def on_ready():

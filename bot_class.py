@@ -46,13 +46,25 @@ class MyView(View):
         super().__init__(timeout=None)
         
 
-    @discord.ui.button(label="Click me!", style=discord.ButtonStyle.primary, custom_id="click_me_button")
+    @discord.ui.button(label="Member", style=discord.ButtonStyle.primary, custom_id="click_me_button")
     async def button_callback(self, interaction: discord.Interaction, button: discord.ui.Button):
         # role = read_role()
         user = interaction.user
         # print(user)
         modal = MyModal(user)
+        # await interaction.response.send_message("ส่งข้อมูลให้ผู้ดูแลแล้ว !", ephemeral=True)
         await interaction.response.send_modal(modal)
+
+    # @discord.ui.button(label="PrivateSphx", style=discord.ButtonStyle.primary, custom_id="another_button")
+    # async def another_button_callback(self, interaction: discord.Interaction, button: discord.ui.Button):
+    #     user = interaction.user
+    #     print(user)
+    #     user = interaction.user
+    #     # print(user)
+    #     modal = MyModal(user)
+    #     await interaction.response.send_message("ส่งข้อมูลให้ผู้ดูแลแล้ว !", ephemeral=True)
+    #     await interaction.response.send_modal(modal)
+
         
 
 class confirm(discord.ui.View):
@@ -136,7 +148,7 @@ class MyModal(Modal):
         self.name = TextInput(label="ชื่อ", placeholder="Enter your name", required=True)
         self.age = TextInput(label="อายุ", placeholder="Enter your age", required=True)
         self.gender = TextInput(label="เพศ", placeholder="Enter your gender", required=True)
-        self.contact = TextInput(label="Facebook/IG", placeholder="Enter your contact", required=True)
+        self.contact = TextInput(label="Link : Facebook/IG", placeholder="Enter your contact", required=True)
         self.who_invite = TextInput(label="ใครเชิญมา", placeholder="Enter who invited you", required=True)
 
         self.add_item(self.name)
